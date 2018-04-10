@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -63,11 +64,15 @@ public final class MainActivity extends AppCompatActivity {
         try {
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
                     Request.Method.GET,
-                    "",
+                    "http://api.oceandrivers.com/static/resources.json",
                     null,
                     new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(final JSONObject response) {
+                            if (response != null) {
+                                final TextView text = findViewById(R.id.jsonResult);
+                                
+                            }
                             Log.d(TAG, response.toString());
                         }
                     }, new Response.ErrorListener() {
